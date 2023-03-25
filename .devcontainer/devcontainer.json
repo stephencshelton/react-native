@@ -1,13 +1,18 @@
 {
   "build": { "dockerfile": "Dockerfile"},
-        "features": {
-            "features": {
-                "ghcr.io/devcontainers/features/node:1": {
-                    "version": "lts"
-                },
-                "ghcr.io/devcontainers/features/ruby:1": {
-                    "version": "3.1"
-                }
-            }
-        }
+  "runArgs": [
+    "--privileged",
+    "--cap-add=ALL",
+    "-v", "/dev:/dev",
+    "-v", "/lib/modules:/lib/modules",
+    "-v", "/sys/fs/cgroup:/sys/fs/cgroup"
+  ],
+  "features": {
+      "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/ruby:1": {
+      "version": "3.1"
+    }
+  }
 }
